@@ -1,0 +1,17 @@
+{
+  "name": "rn-login-micro-architecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bootstrap": "yarn --cwd caller && yarn --cwd micro_login",
+    "pod-install": "cd caller/ios/ && arch -x86_64 pod install && cd ../../micro_login/ios/ && arch -x86_64 pod install",
+    "start:microApp": "yarn --cwd micro_login start",
+    "start:host": "yarn --cwd caller start",
+    "parallel": "yarn start:host & yarn start:microApp",
+    "run:host:ios": "yarn --cwd caller ios",
+    "run:host:android": "yarn --cwd caller android",
+    "run:microApp:ios": "STANDALONE=1 yarn --cwd micro_login ios",
+    "run:microApp:android": "STANDALONE=1 yarn --cwd micro_login android"
+  }
+}
