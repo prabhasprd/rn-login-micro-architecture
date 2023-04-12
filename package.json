@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bootstrap": "yarn --cwd caller && yarn --cwd LoginMicro",
-    "pod-install": "cd caller/ios/ && arch -x86_64 pod install && cd ../../LoginMicro/ios/ && arch -x86_64 pod install",
+    "bootstrap": "yarn --cwd CallHostStack && yarn --cwd LoginMicro",
+    "pod-install": "cd CallHostStack/ios/ && arch -x86_64 pod install && cd ../../LoginMicro/ios/ && arch -x86_64 pod install",
     "start:LoginMicro": "yarn --cwd LoginMicro start",
-    "start:host": "yarn --cwd caller start",
+    "start:host": "yarn --cwd CallHostStack start",
     "parallel": "yarn start:host & yarn start:LoginMicro",
-    "run:host:ios": "yarn --cwd caller ios",
-    "run:host:android": "yarn --cwd caller android",
+    "run:host:ios": "yarn --cwd CallHostStack ios",
+    "run:host:android": "yarn --cwd CallHostStack android",
     "run:LoginMicro:ios": "STANDALONE=1 yarn --cwd LoginMicro ios",
     "run:LoginMicro:android": "STANDALONE=1 yarn --cwd LoginMicro android"
   }
