@@ -1,25 +1,19 @@
-import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import BindingMicroApplication from './micro_services/common_component';
-import {MicroApplication} from './micro_services';
+import {SafeAreaView, Text} from 'react-native';
+import React from 'react';
+import AsyncRootScreen from './screens/AsyncRootScreen';
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLogin(true);
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
   return (
-    <SafeAreaView>
-      <Text>askdjaks</Text>
-      {isLogin && (
-        <BindingMicroApplication
-          LoadingContent={'sdhhs ...'}
-          children={<MicroApplication />}
-        />
-      )}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: '#D14D72',
+        alignSelf: 'center',
+        alignItems: 'center',
+        width: '100%',
+      }}>
+      <Text>Root Application</Text>
+      <AsyncRootScreen />
     </SafeAreaView>
   );
 };

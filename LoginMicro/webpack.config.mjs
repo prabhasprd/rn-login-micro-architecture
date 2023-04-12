@@ -236,6 +236,8 @@ export default env => {
         name: 'LoginMicro',
         exposes: {
           './App': './App.tsx',
+          './AsyncDetailsScreen': './screens/AsyncStorageScreen/index.tsx',
+          './LoginAuthScreen': './screens/AsyncStorageScreen/index.tsx',
         },
         shared: {
           react: {
