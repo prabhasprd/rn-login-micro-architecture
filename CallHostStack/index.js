@@ -6,7 +6,9 @@ import {AppRegistry, Platform} from 'react-native';
 import {ScriptManager, Script, Federated} from '@callstack/repack/client';
 import App from './App';
 import {name as appName} from './app.json';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+ScriptManager.shared.setStorage(AsyncStorage);
 const resolveURL = Federated.createURLResolver({
   containers: {
     LoginMicro: 'http://127.0.0.1:8082/[name][ext]',
