@@ -153,6 +153,8 @@ export default env => {
             /node_modules(.*[/\\])+react/,
             /node_modules(.*[/\\])+@react-native/,
             /node_modules(.*[/\\])+@react-navigation/,
+            /node_modules(.*[/\\])+@react-navigation\/native/,
+            /node_modules(.*[/\\])+@react-navigation\/native-stack/,
             /node_modules(.*[/\\])+@react-native-community/,
             /node_modules(.*[/\\])+@expo/,
             /node_modules(.*[/\\])+pretty-format/,
@@ -236,6 +238,13 @@ export default env => {
         name: 'LoginMicro',
         exposes: {
           './App': './App.tsx',
+          './ReduxConfig': './src/screens/ReduxConfig/index.tsx',
+          './LoginAuthScreen': './src/screens/LoginAuthScreen/index.tsx',
+          './AsyncMicroApp': './src/screens/AsyncScreenMicroApp/index.tsx',
+          './MicroStackNav':
+            './src/appconfig/router/CustomMicroStackNaviagtor.tsx',
+          './CustomStackNaviagtor':
+            './src/appconfig/router/CustomStackNaviagtor.tsx',
         },
         shared: {
           react: {
