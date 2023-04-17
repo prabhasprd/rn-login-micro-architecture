@@ -25,13 +25,13 @@ To execute application independently
 Run scripts to execute host application:
 
 ```bash
-yarn --cwd CallHostStack ios
-yarn --cwd CallHostStack android
+yarn --cwd <host application> ios
+yarn --cwd <host application> android
 ```
 
 Run scripts to execute Micro application:
 
 ```bash
-STANDALONE=1 yarn --cwd LoginMicro ios
-STANDALONE=1 yarn --cwd LoginMicro android
+STANDALONE=1 yarn --cwd <micro application> ios
+STANDALONE=1 yarn --cwd <micro application> android
 ```
