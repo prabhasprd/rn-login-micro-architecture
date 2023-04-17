@@ -13,14 +13,19 @@ const LoginAuthScreen = (props: any) => {
       <Stack.Navigator
         initialRouteName="AppHome"
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="AppHome" component={AppHome} />
-        <Stack.Screen
-          name="AsyncScreenMicroApp"
-          component={AsyncScreenMicroApp}
-        />
-        <Stack.Screen name="PassingProps" component={PassingProps} />
+        <Stack.Screen name="AppHome">
+          {(subProps: any) => <AppHome {...subProps} {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="AsyncScreenMicroApp">
+          {(subProps: any) => <AsyncScreenMicroApp {...subProps} {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="PassingProps">
+          {(subProps: any) => <PassingProps {...subProps} {...props} />}
+        </Stack.Screen>
         <Stack.Screen name="ReduxConfig">
-          {(props: any) => <ReduxConfig {...props} store={store} />}
+          {(subProps: any) => (
+            <ReduxConfig {...subProps} {...props} store={store} />
+          )}
         </Stack.Screen>
       </Stack.Navigator>
     </Provider>

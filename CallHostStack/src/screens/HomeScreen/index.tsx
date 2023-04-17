@@ -33,7 +33,7 @@ const HomeScreen = (props: any) => {
         activeOpacity={0.4}
         style={styles.buttonStyle}
         onPress={() => {
-          navigation.navigate('Micro App', {
+          navigation.navigate('MinorApp', {
             screen: 'PassingProps',
             params: {userPropsData},
           });

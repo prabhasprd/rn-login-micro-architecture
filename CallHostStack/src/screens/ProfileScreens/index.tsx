@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, TextInput, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from './styles';
 import {updateUserDatails} from '../../appconfig/redux/action';
 import HomeScreens from '../HomeScreen';
@@ -12,6 +12,7 @@ interface ProfileUserDetails {
 
 const ProfileScreens = (props: any) => {
   const {navigation} = props;
+  const MinorAppData = useSelector((state: any) => state.userReducerMinor);
   const [profileUserDetails, setProfileUserDetails] =
     useState<ProfileUserDetails>({
       name: '',
@@ -50,11 +51,15 @@ const ProfileScreens = (props: any) => {
         placeholder={'enter phone'}
         placeholderTextColor={'black'}
       />
+      <Text>
+        {`MinorAppData ->>>>`}
+        {JSON.stringify(MinorAppData[0])}
+      </Text>
       <TouchableOpacity
         activeOpacity={0.4}
         style={styles.switchButtonStyle}
         onPress={() => {
-          navigation.navigate('HomeScreen');
+          navigation.navigate('HomeScreen', {screen: 'ItemList'});
         }}>
         <Text style={styles.buttonTextStyle}>Back to Home Screen</Text>
       </TouchableOpacity>

@@ -20,3 +20,7 @@ export const AsyncMicroApp = React.lazy(() =>
 export const MicroAppStackNavigation = React.lazy(() =>
   Federated.importModule('LoginMicro', './MicroStackNav'),
 );
+
+export const microAppStore = React.lazy(() =>
+  Federated.importModule('LoginMicro', './minorAppStore'),
+);

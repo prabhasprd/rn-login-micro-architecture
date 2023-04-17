@@ -161,6 +161,8 @@ export default env => {
             /node_modules(.*[/\\])+metro/,
             /node_modules(.*[/\\])+abort-controller/,
             /node_modules(.*[/\\])+@callstack\/repack/,
+            /node_modules(.*[/\\])+react-redux/,
+            /node_modules(.*[/\\])+axios/,
           ],
           use: 'babel-loader',
         },
@@ -237,7 +239,6 @@ export default env => {
       new Repack.plugins.ModuleFederationPlugin({
         name: 'LoginMicro',
         exposes: {
-          './App': './App.tsx',
           './ReduxConfig': './src/screens/ReduxConfig/index.tsx',
           './LoginAuthScreen': './src/screens/LoginAuthScreen/index.tsx',
           './AsyncMicroApp': './src/screens/AsyncScreenMicroApp/index.tsx',
@@ -245,6 +246,7 @@ export default env => {
             './src/appconfig/router/CustomMicroStackNaviagtor.tsx',
           './CustomStackNaviagtor':
             './src/appconfig/router/CustomStackNaviagtor.tsx',
+          './minorAppStore': './src/appconfig/microRedux/store/index.tsx',
         },
         shared: {
           react: {

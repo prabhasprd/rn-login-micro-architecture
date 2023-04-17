@@ -1,12 +1,12 @@
 import {INITIAL_STATE} from './initialState';
-import {MINOR_STORE_DETAILS} from '../action/constant';
+import {STORE_DETAILS} from '../action/constant';
 
-export const userReducerMinor = (
+export const minorUserReducer = (
   state = INITIAL_STATE.minorUserDetails,
   action,
 ) => {
   switch (action.type) {
-    case MINOR_STORE_DETAILS:
+    case STORE_DETAILS:
       return [
         {
           name: action.payload,

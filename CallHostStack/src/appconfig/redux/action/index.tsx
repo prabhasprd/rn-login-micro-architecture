@@ -5,6 +5,6 @@ export const updateUserDatails = (data: any) => {
   return {type: STORE_DETAILS, payload: data};
 };
 
-export const MinorUpdateUserDatails = (data: any) => {
+export const minorUpdateUserDatails = (data: any) => {
   return {type: MINOR_STORE_DETAILS, payload: data};
 };

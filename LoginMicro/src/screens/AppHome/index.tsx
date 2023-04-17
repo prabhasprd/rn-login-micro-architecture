@@ -1,46 +1,82 @@
-import {SafeAreaView, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import React from 'react';
+import {
+  SafeAreaView,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import React, {useEffect} from 'react';
+import Axios from 'axios';
 
 const AppHome = (props: any) => {
-  const {navigation} = props;
+  const {navigation, isHost} = props;
   const onHandleNavigate = (value: any): void => {
     navigation.navigate(value);
   };
 
+  // useEffect(() => {
+  //   (async () => {
+  //     const users = await apiCall();
+  //   })();
+  // }, []);
+
+  // const apiCall = () => {
+  //   Axios.get('https://fakestoreapi.com/products/1')
+  //     .then(res => console.log('json ===><>>>>', res))
+  //     .catch(err => {
+  //       console.log('error =>', err);
+  //     });
+  // };
+
   return (
-    <SafeAreaView>
-      <Text style={styles.introTextStyle}>Micro Application</Text>
-      <Text style={styles.introTextStyle}>Host Application Navigate</Text>
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => {
-          onHandleNavigate('ItemList');
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView
+        contentContainerStyle={{
+          width: '100%',
+          alignItems: 'center',
+          flexGrow: 1,
         }}>
-        <Text style={styles.buttonTextStyle}>Host Application Menu List</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => {
-          onHandleNavigate('AsyncScreenMicroApp');
-        }}>
-        <Text style={styles.buttonTextStyle}>
-          Micro Application Async store
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => {
-          onHandleNavigate('ReduxConfig');
-        }}>
-        <Text style={styles.buttonTextStyle}>{`Redux Test Screen`}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => {
-          onHandleNavigate('PassingProps');
-        }}>
-        <Text style={styles.buttonTextStyle}>{`Props Screen`}</Text>
-      </TouchableOpacity>
+        <Text
+          style={
+            styles.introTextStyle
+          }>{`Micro Application Screen Menus Compel`}</Text>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => {
+            onHandleNavigate('PassingProps');
+          }}>
+          <Text
+            style={
+              styles.buttonTextStyle
+            }>{`Micro Application Props Screen`}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => {
+            onHandleNavigate('AsyncScreenMicroApp');
+          }}>
+          <Text style={styles.buttonTextStyle}>
+            {`Micro Application Async store`}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => {
+            onHandleNavigate('ReduxConfig');
+          }}>
+          <Text
+            style={styles.buttonTextStyle}>{`Micro Application Redux`}</Text>
+        </TouchableOpacity>
+        {isHost && (
+          <TouchableOpacity
+            style={styles.buttonStyle1}
+            onPress={() => {
+              onHandleNavigate('ItemList');
+            }}>
+            <Text style={styles.buttonTextStyle}>{`Swith to Host App`}</Text>
+          </TouchableOpacity>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -67,5 +103,17 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 20,
     marginBottom: 20,
+  },
+  buttonStyle1: {
+    height: 45,
+    borderWidth: 1,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '95%',
+    alignSelf: 'center',
+    marginTop: 20,
+    bottom: 0,
+    position: 'absolute',
   },
 });
