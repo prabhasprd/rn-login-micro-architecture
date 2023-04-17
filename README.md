@@ -26,6 +26,9 @@ Run scripts to execute host application:
 
 ```bash
 yarn --cwd <host application> ios
+```
+
+```bash
 yarn --cwd <host application> android
 ```
 
@@ -33,5 +36,8 @@ Run scripts to execute Micro application:
 
 ```bash
 STANDALONE=1 yarn --cwd <micro application> ios
+```
+
+```bash
 STANDALONE=1 yarn --cwd <micro application> android
 ```
