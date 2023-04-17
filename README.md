@@ -64,8 +64,9 @@ Create webpack.config.mjs file
 
 Configure on xcode
 
-```bash
 Project navigator => Build Phases => Bundle React Native code and images
+
+```bash
 export BUNDLE_COMMAND=webpack-bundle
 ```
 
