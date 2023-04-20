@@ -14,19 +14,19 @@ const AppHome = (props: any) => {
     navigation.navigate(value);
   };
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const users = await apiCall();
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      await apiCall();
+    })();
+  }, []);
 
-  // const apiCall = () => {
-  //   Axios.get('https://fakestoreapi.com/products/1')
-  //     .then(res => console.log('json ===><>>>>', res))
-  //     .catch(err => {
-  //       console.log('error =>', err);
-  //     });
-  // };
+  const apiCall = () => {
+    Axios.get('https://fakestoreapi.com/products/1')
+      .then(res => console.log('json ===><>>>> stat', JSON.stringify(res)))
+      .catch(err => {
+        console.log('error =>', err);
+      });
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -73,7 +73,7 @@ const AppHome = (props: any) => {
             onPress={() => {
               onHandleNavigate('ItemList');
             }}>
-            <Text style={styles.buttonTextStyle}>{`Swith to Host App`}</Text>
+            <Text style={styles.buttonTextStyle}>{`Switch to Host App`}</Text>
           </TouchableOpacity>
         )}
       </ScrollView>
