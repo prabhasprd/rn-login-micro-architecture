@@ -17,7 +17,10 @@ yarn pod-install
 Run scripts to execute application:
 
 ```bash
+
+yarn start:<host application> & yarn start:<micro application>
 yarn start:host & yarn start:LoginMicro
+
 ```
 
 To execute application independently
@@ -26,20 +29,25 @@ Run scripts to execute host application:
 
 ```bash
 yarn --cwd <host application> ios
+yarn --cwd host ios
 ```
 
 ```bash
 yarn --cwd <host application> android
+yarn --cwd host android
 ```
 
 Run scripts to execute Micro application:
 
 ```bash
 STANDALONE=1 yarn --cwd <micro application> ios
+STANDALONE=1 yarn --cwd LoginMicro ios
 ```
 
 ```bash
 STANDALONE=1 yarn --cwd <micro application> android
+STANDALONE=1 yarn --cwd LoginMicro android
+
 ```
 
 How to configure @callstack/recall on application (https://re-pack.netlify.app/docs/getting-started).
